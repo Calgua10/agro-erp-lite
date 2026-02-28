@@ -3,6 +3,7 @@ import ProductsPage from "../pages/ProductsPage";
 import Layout from "../components/Layout";
 import ClientsPage from "../pages/ClientsPage";
 import SalesPage from "../pages/SalesPage";
+<Route path="/ventas" element={<SalesPage />} />
 
 function Placeholder({ title }: { title: string }) {
   return (
