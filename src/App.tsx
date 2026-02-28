@@ -1,10 +1,5 @@
-function App() {
-  return (
-    <>
-      <h1>Agro ERP Lite</h1>
-      <p>Sistema administrativo agroindustrial</p>
-    </>
-  )
-}
+import ProductsPage from "./pages/ProductsPage";
 
-export default App
+export default function App() {
+  return <ProductsPage />;
+}
