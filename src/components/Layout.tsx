@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 type Props = {
   title?: string;
@@ -6,6 +7,9 @@ type Props = {
 };
 
 export default function Layout({ title, children }: Props) {
+  const location = useLocation(); 
+  const isActive = (path: string) => location.pathname === path;
+
   return (
     <div style={{ display: "flex", height: "100vh" }}>
       {/* Sidebar */}
@@ -25,20 +29,75 @@ export default function Layout({ title, children }: Props) {
         </div>
 
         <nav style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-          {/* Por ahora son “botones” sin router */}
-          <button style={{ textAlign: "left", padding: 10 }}>📦 Productos</button>
-          <button style={{ textAlign: "left", padding: 10 }} disabled>
-            👤 Clientes (próximo)
-          </button>
-          <button style={{ textAlign: "left", padding: 10 }} disabled>
-            🧾 Ventas (próximo)
-          </button>
-          <button style={{ textAlign: "left", padding: 10 }} disabled>
-            🏭 Producción (próximo)
-          </button>
-          <button style={{ textAlign: "left", padding: 10 }} disabled>
-            📊 Dashboard (próximo)
-          </button>
+          <Link
+            to="/productos"
+            style={{
+              textDecoration: "none",
+              padding: 10,
+              borderRadius: 8,
+              border: "1px solid #333",
+              background: isActive("/productos") ? "#222" : "transparent",
+              color: "inherit",
+            }}
+          >
+            📦 Productos
+          </Link>
+
+          <Link
+            to="/clientes"
+            style={{
+              textDecoration: "none",
+              padding: 10,
+              borderRadius: 8,
+              border: "1px solid #333",
+              background: isActive("/clientes") ? "#222" : "transparent",
+              color: "inherit",
+            }}
+          >
+            👤 Clientes
+          </Link>
+
+          <Link
+            to="/ventas"
+            style={{
+              textDecoration: "none",
+              padding: 10,
+              borderRadius: 8,
+              border: "1px solid #333",
+              background: isActive("/ventas") ? "#222" : "transparent",
+              color: "inherit",
+            }}
+          >
+            🧾 Ventas
+          </Link>
+
+          <Link
+            to="/produccion"
+            style={{
+              textDecoration: "none",
+              padding: 10,
+              borderRadius: 8,
+              border: "1px solid #333",
+              background: isActive("/produccion") ? "#222" : "transparent",
+              color: "inherit",
+            }}
+          >
+            🏭 Producción
+          </Link>
+
+          <Link
+            to="/dashboard"
+            style={{
+              textDecoration: "none",
+              padding: 10,
+              borderRadius: 8,
+              border: "1px solid #333",
+              background: isActive("/dashboard") ? "#222" : "transparent",
+              color: "inherit",
+            }}
+          >
+            📊 Dashboard
+          </Link>
         </nav>
 
         <div style={{ marginTop: "auto", opacity: 0.7, fontSize: 12 }}>
